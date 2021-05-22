@@ -23,6 +23,9 @@ namespace Api_curso {
             //criada a conexao vinda do appsettings.json
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<PersonContext>(options => options.UseMySql(connection));
+
+            //usado para versionar api
+            services.AddApiVersioning();
             //add injeçao de dependencia po @arcangelo
             services.AddScoped<IPersonService, PersonServiceImplementation>();
 
