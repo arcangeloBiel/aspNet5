@@ -1,0 +1,6 @@
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\obj\Debug\net5.0\Api_curso.csprojAssemblyReference.cache
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\obj\Debug\net5.0\Api_curso.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\obj\Debug\net5.0\Api_curso.AssemblyInfoInputs.cache
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\obj\Debug\net5.0\Api_curso.AssemblyInfo.cs
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\obj\Debug\net5.0\Api_curso.csproj.CoreCompileInputs.cache
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\obj\Debug\net5.0\Api_curso.MvcApplicationPartsAssemblyInfo.cache
