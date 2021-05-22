@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Api_curso.Services.Implementations {
-    public class PersonServiceImplementation : IPersonService {
+namespace Api_curso.Repository.Implementations {
+    public class PersonRepositoryImplementation : IPersonRepository {
         //inject dependency
         private PersonContext _context;
 
-        public PersonServiceImplementation(PersonContext context) {
+        public PersonRepositoryImplementation(PersonContext context) {
             _context = context;
         }
 
@@ -67,7 +67,7 @@ namespace Api_curso.Services.Implementations {
             return person;
         }
 
-        private bool Exists(long id) {
+        public bool Exists(long id) {
             return _context.persons.Any(p => p.Id.Equals(id));
         }
     }

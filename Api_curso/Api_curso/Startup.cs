@@ -1,13 +1,14 @@
 using Api_curso.Model.Context;
-using Api_curso.Services;
-using Api_curso.Services.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using Api_curso.Repository;
+using Api_curso.Repository.Implementations;
+using Api_curso.Business;
+using Api_curso.Business.Implementations;
 
 namespace Api_curso {
     public class Startup {
@@ -27,7 +28,8 @@ namespace Api_curso {
             //usado para versionar api
             services.AddApiVersioning();
             //add injeçao de dependencia po @arcangelo
-            services.AddScoped<IPersonService, PersonServiceImplementation>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
+            services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
 
         }
 

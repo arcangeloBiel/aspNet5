@@ -1,8 +1,8 @@
 ﻿using Api_curso.Model;
 using System.Collections.Generic;
 
-namespace Api_curso.Services {
-   public interface IPersonService {
+namespace Api_curso.Business {
+   public interface IPersonBusiness {
 
         Person Create(Person person);
         Person FindById(long id);
