@@ -33,3 +33,15 @@ C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\obj\Debug\net5.0\Api_curso.pdb
 C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\obj\Debug\net5.0\Api_curso.genruntimeconfig.cache
 C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll
 C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\obj\Debug\net5.0\Api_curso.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Evolve.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Serilog.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Serilog.AspNetCore.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Serilog.Extensions.Hosting.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Serilog.Formatting.Compact.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Serilog.Settings.Configuration.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Serilog.Sinks.Console.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
+C:\Users\User\udemy\aspNet5\Api_curso\Api_curso\bin\Debug\net5.0\Serilog.Sinks.File.dll

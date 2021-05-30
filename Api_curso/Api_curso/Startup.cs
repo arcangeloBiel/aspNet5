@@ -9,14 +9,23 @@ using Api_curso.Repository;
 using Api_curso.Repository.Implementations;
 using Api_curso.Business;
 using Api_curso.Business.Implementations;
+using Serilog;
+using System;
+using System.Collections.Generic;
 
 namespace Api_curso {
     public class Startup {
-        public Startup(IConfiguration configuration) {
-            Configuration = configuration;
-        }
-
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
+        
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment) {
+            Configuration = configuration;
+            Environment = environment;
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .CreateLogger();
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
@@ -24,6 +33,11 @@ namespace Api_curso {
             //criada a conexao vinda do appsettings.json
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<PersonContext>(options => options.UseMySql(connection));
+
+            //CONFIGURANDO AS MIGRATIONS
+            if (Environment.IsDevelopment()) {
+                MigrateDatabase(connection);
+            }
 
             //usado para versionar api
             services.AddApiVersioning();
@@ -49,5 +63,21 @@ namespace Api_curso {
                 endpoints.MapControllers();
             });
         }
+        private void MigrateDatabase(string connection) {
+            try {
+                var evolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
+                var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
+                {
+                    Locations = new List<string> {"db/migrations","db/dataset"},
+                    IsEraseDisabled = true
+                };
+                evolve.Migrate();
+            }
+            catch (Exception ex) {
+                Log.Error("Database migration failed", ex);
+                throw;
+            }
+        }
+
     }
 }
