@@ -11,7 +11,6 @@ using Api_curso.Business.Implementations;
 using Serilog;
 using System;
 using System.Collections.Generic;
-using Api_curso.Repository.Implementations;
 using Api_curso.Repository.Generic;
 
 namespace Api_curso {
@@ -44,7 +43,6 @@ namespace Api_curso {
             services.AddApiVersioning();
             //add injeçao de dependencia po @arcangelo
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
-            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
          

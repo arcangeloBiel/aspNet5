@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repository\Implementations\**" />
+    <Content Remove="Repository\Implementations\**" />
+    <EmbeddedResource Remove="Repository\Implementations\**" />
+    <None Remove="Repository\Implementations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Repository\IPersonRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="db\migrations\" />
     <Folder Include="db\dataset\" />
     <Folder Include="Model\Scripts\" />

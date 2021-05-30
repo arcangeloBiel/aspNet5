@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace Api_curso.Business.Implementations {
     public class PersonBusinessImplementation : IPersonBusiness {
         //inject dependency
-        private readonly IRepository _repository;
+        private readonly IRepository<Person> _repository;
 
-        public PersonBusinessImplementation(IRepository repository) {
+        public PersonBusinessImplementation(IRepository<Person> repository) {
             _repository = repository;
         }
 
