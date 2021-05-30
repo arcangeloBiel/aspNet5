@@ -7,9 +7,9 @@ using System.Linq;
 namespace Api_curso.Repository.Implementations {
     public class PersonRepositoryImplementation : IPersonRepository {
         //inject dependency
-        private PersonContext _context;
+        private MySQLContext _context;
 
-        public PersonRepositoryImplementation(PersonContext context) {
+        public PersonRepositoryImplementation(MySQLContext context) {
             _context = context;
         }
 
@@ -58,6 +58,7 @@ namespace Api_curso.Repository.Implementations {
                 try {
                     _context.Entry(result).CurrentValues.SetValues(person);
                     _context.SaveChanges();
+                    
                 }
                 catch (Exception ex) {
 

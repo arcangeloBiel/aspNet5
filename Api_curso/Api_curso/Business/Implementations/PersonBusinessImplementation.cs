@@ -1,16 +1,13 @@
 ﻿using Api_curso.Model;
-
 using Api_curso.Repository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Api_curso.Business.Implementations {
     public class PersonBusinessImplementation : IPersonBusiness {
         //inject dependency
-        private readonly IPersonRepository _repository;
+        private readonly IRepository _repository;
 
-        public PersonBusinessImplementation(IPersonRepository repository) {
+        public PersonBusinessImplementation(IRepository repository) {
             _repository = repository;
         }
 

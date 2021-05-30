@@ -6,12 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Api_curso.Repository;
-using Api_curso.Repository.Implementations;
 using Api_curso.Business;
 using Api_curso.Business.Implementations;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using Api_curso.Repository.Implementations;
+using Api_curso.Repository.Generic;
 
 namespace Api_curso {
     public class Startup {
@@ -32,7 +33,7 @@ namespace Api_curso {
             services.AddControllers();
             //criada a conexao vinda do appsettings.json
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
-            services.AddDbContext<PersonContext>(options => options.UseMySql(connection));
+            services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
 
             //CONFIGURANDO AS MIGRATIONS
             if (Environment.IsDevelopment()) {
@@ -42,9 +43,11 @@ namespace Api_curso {
             //usado para versionar api
             services.AddApiVersioning();
             //add injeçao de dependencia po @arcangelo
-            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
-
+            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
+            services.AddScoped<IBookBusiness, BookBusinessImplementation>();
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
