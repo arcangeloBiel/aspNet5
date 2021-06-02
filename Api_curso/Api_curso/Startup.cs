@@ -12,6 +12,8 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using Api_curso.Repository.Generic;
+using Api_curso.HiperMidia.Filters;
+using Api_curso.HiperMidia.Enricher;
 
 namespace Api_curso {
     public class Startup {
@@ -45,7 +47,12 @@ namespace Api_curso {
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
-         
+
+            var filterOptions = new HiperMediaFiltersOptions();
+           // filterOptions.contentResponseList.Add(new PersonEnricher());
+            services.AddSingleton(filterOptions);
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +69,7 @@ namespace Api_curso {
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefaultApi","{controller=value}/{id?}");
             });
         }
         private void MigrateDatabase(string connection) {
