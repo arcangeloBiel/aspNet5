@@ -11,6 +11,7 @@ namespace Api_curso.Model.Context {
         public DbSet<Person> persons { get; set; }
 
         public DbSet<Book> books { get; set; }
+        public DbSet<User> Users { get; set; }
 
     }
 }
