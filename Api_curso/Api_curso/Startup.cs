@@ -31,6 +31,14 @@ namespace Api_curso {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
+
+            //adicionando cors @arcangelo ribeiro
+            services.AddCors(options => options.AddDefaultPolicy(builder => {
+                builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+            }));
+
             services.AddControllers();
             //criada a conexao vinda do appsettings.json
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
@@ -64,6 +72,8 @@ namespace Api_curso {
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            //CONFIGURAÇÃO DO CORS 
+            app.UseCors();
 
             app.UseAuthorization();
 
